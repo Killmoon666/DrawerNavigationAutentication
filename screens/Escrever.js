@@ -14,7 +14,9 @@ const Escrever = () => {
   const enviarDados = () => {
      firestore
      .collection('Helicoptero')
+     .doc()
      .set({
+       id: enviarDados.id,
        nome: nome,
        modelo: modelo, 
        cor: cor,
