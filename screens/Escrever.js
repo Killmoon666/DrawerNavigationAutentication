@@ -9,14 +9,12 @@ const Escrever = () => {
   const [cor, setCor] = useState('')
   const [tipo, setTipo] = useState('')
 
-  
+  const myRef = firestore.collection('Helicoptero').doc();
 
   const enviarDados = () => {
-     firestore
-     .collection('Helicoptero')
-     .doc()
+    myRef
      .set({
-       id: enviarDados.id,
+       id: myRef.id,
        nome: nome,
        modelo: modelo, 
        cor: cor,
