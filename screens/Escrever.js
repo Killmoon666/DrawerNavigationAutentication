@@ -14,7 +14,7 @@ const Escrever = () => {
   const enviarDados = () => {
      firestore
      .collection('Helicoptero')
-     .add({
+     .set({
        nome: nome,
        modelo: modelo, 
        cor: cor,
