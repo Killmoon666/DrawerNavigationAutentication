@@ -5,19 +5,19 @@ import MeuEstilo from '../meuestilo';
 
 const Listar = () => {
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
-  const [gatos, setGatos] = useState([]); // Initial empty array of users
+  const [helicopteros, setHelicopteros] = useState([]); // Initial empty array of users
 
   useEffect(() => {
-    const subscriber = firestore.collection('Gato')
+    const subscriber = firestore.collection('Helicoptero')
       .onSnapshot(querySnapshot => {
-        const gatos = [];
+        const helicopteros = [];
         querySnapshot.forEach(documentSnapshot => {
           gatos.push({
             ...documentSnapshot.data(),
             key: documentSnapshot.nome,
           });
         });
-        setGatos(gatos);
+        setGatos(helicopteros);
         setLoading(false);
       });
     // Unsubscribe from events when no longer in use
@@ -38,35 +38,35 @@ const Item = ({ nome }) => (
 
   const renderItem = ({ item }) => <Item nome={item.nome} />;
 
-  // const getGatos= ()=>{
+  // const getHelicopteros= ()=>{
   //   setGatos([]);
   //   firestore
-  //   .collection('Gato')
+  //   .collection('Helicoptero')
   //   .onSnapshot(querySnapshot=>{
   //     //querySnapshot.forEach(documentSnapshot=>{
   //     querySnapshot.docChanges().forEach(change=>{
         
-  //       gatos.push({...change.doc.data(),
+  //       helicopteros.push({...change.doc.data(),
   //         key: change.nome,
   //       });
   //     });
-  //     setGatos(gatos);
+  //     setHelicopteros(helicopteros);
   //     // setCarregando(false);
   //   });
   //   // return()=>subscriber();
   // };
 
-  // // const observador = firestore.collection('Gato')
+  // // const observador = firestore.collection('Helicoptero')
   // // .onSnapshot(querySnapshot => {
   // //   querySnapshot.docChanges().forEach(change => {
   // //     if (change.type === 'added') {
-  // //       console.log('Novo Gato: ', change.doc.data());
+  // //       console.log('Novo Helicoptero: ', change.doc.data());
   // //     }
   // //     if (change.type === 'modified') {
-  // //       console.log('Gato modificado: ', change.doc.data());
+  // //       console.log('Helicoptero modificado: ', change.doc.data());
   // //     }
   // //     if (change.type === 'removed') {
-  // //       console.log('Gato removido: ', change.doc.data());
+  // //       console.log('Helicoptero removido: ', change.doc.data());
   // //     }
   // //   });
   // // });
@@ -74,7 +74,7 @@ const Item = ({ nome }) => (
   return (
     <SafeAreaView style={MeuEstilo.containerlistar}>
       <FlatList 
-      data={gatos} 
+      data={helicopteross} 
       renderItem={renderItem} 
       keyExtractor={item => item.nome} 
       // refreshing={true}
