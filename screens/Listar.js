@@ -79,7 +79,7 @@ const Item = ({ nome }) => (
       keyExtractor={item => item.nome} 
       // refreshing={true}
       // onRefresh={() => {
-      //   getGatos();
+      //   getHelicopteros();
       // }}
       />
     </SafeAreaView>
