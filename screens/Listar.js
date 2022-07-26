@@ -12,12 +12,12 @@ const Listar = () => {
       .onSnapshot(querySnapshot => {
         const helicopteros = [];
         querySnapshot.forEach(documentSnapshot => {
-          gatos.push({
+          helicopteros.push({
             ...documentSnapshot.data(),
             key: documentSnapshot.nome,
           });
         });
-        setGatos(helicopteros);
+        setHelicopteros(helicopteros);
         setLoading(false);
       });
     // Unsubscribe from events when no longer in use
