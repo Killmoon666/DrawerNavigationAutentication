@@ -8,7 +8,7 @@ const Listar = () => {
   const [capacetes, setcapacetes] = useState([]); 
 
   useEffect(() => {
-    const subscriber = firestore.collection('Helicoptero')
+    const subscriber = firestore.collection('capacete')
       .onSnapshot(querySnapshot => {
         const capacetes = [];
         querySnapshot.forEach(documentSnapshot => {
