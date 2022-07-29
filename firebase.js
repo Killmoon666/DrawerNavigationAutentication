@@ -17,15 +17,12 @@ import "firebase/compat/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  
-  apiKey: "AIzaSyBcURm6wN3mA_wec2uHbpuUJ8ZZPmah73A",
-  authDomain: "avaliacao-fb163.firebaseapp.com",
-  projectId: "avaliacao-fb163",
-  storageBucket: "avaliacao-fb163.appspot.com",
-  messagingSenderId: "735165407992",
-  appId: "1:735165407992:web:d18b5082215a83bf32110d"
-
-
+  apiKey: "AIzaSyBR54_sdSKeQ7wczg4codfol4oTM6xcbIY",
+  authDomain: "reavaliacao1.firebaseapp.com",
+  projectId: "reavaliacao1",
+  storageBucket: "reavaliacao1.appspot.com",
+  messagingSenderId: "219474612041",
+  appId: "1:219474612041:web:32363f0bed69f95fa9d498"
 };
 
 // Initialize Firebase
