@@ -4,23 +4,23 @@ import { auth,firestore } from '../firebase'
 import MeuEstilo from '../meuestilo';
 
 const Listar = () => {
-  const [loading, setLoading] = useState(true); // Set loading to true on component mount
-  const [helicopteros, setHelicopteros] = useState([]); // Initial empty array of users
+  const [loading, setLoading] = useState(true); 
+  const [capacetes, setcapacetes] = useState([]); 
 
   useEffect(() => {
     const subscriber = firestore.collection('Helicoptero')
       .onSnapshot(querySnapshot => {
-        const helicopteros = [];
+        const capacetes = [];
         querySnapshot.forEach(documentSnapshot => {
-          helicopteros.push({
+          capacetes.push({
             ...documentSnapshot.data(),
             key: documentSnapshot.nome,
           });
         });
-        setHelicopteros(helicopteros);
+        setcapacetes(capacetes);
         setLoading(false);
       });
-    // Unsubscribe from events when no longer in use
+   
     return () => subscriber();
   }, []);
 
@@ -38,73 +38,20 @@ const Item = ({ nome }) => (
 
   const renderItem = ({ item }) => <Item nome={item.nome} />;
 
-  // const getHelicopteros= ()=>{
-  //   setGatos([]);
-  //   firestore
-  //   .collection('Helicoptero')
-  //   .onSnapshot(querySnapshot=>{
-  //     //querySnapshot.forEach(documentSnapshot=>{
-  //     querySnapshot.docChanges().forEach(change=>{
-        
-  //       helicopteros.push({...change.doc.data(),
-  //         key: change.nome,
-  //       });
-  //     });
-  //     setHelicopteros(helicopteros);
-  //     // setCarregando(false);
-  //   });
-  //   // return()=>subscriber();
-  // };
-
-  // // const observador = firestore.collection('Helicoptero')
-  // // .onSnapshot(querySnapshot => {
-  // //   querySnapshot.docChanges().forEach(change => {
-  // //     if (change.type === 'added') {
-  // //       console.log('Novo Helicoptero: ', change.doc.data());
-  // //     }
-  // //     if (change.type === 'modified') {
-  // //       console.log('Helicoptero modificado: ', change.doc.data());
-  // //     }
-  // //     if (change.type === 'removed') {
-  // //       console.log('Helicoptero removido: ', change.doc.data());
-  // //     }
-  // //   });
-  // // });
+  
 
   return (
     <SafeAreaView style={MeuEstilo.containerlistar}>
       <FlatList 
-      data={helicopteross} 
+      data={capacetess} 
       renderItem={renderItem} 
       keyExtractor={item => item.nome} 
-      // refreshing={true}
-      // onRefresh={() => {
-      //   getHelicopteros();
-      // }}
+      
       />
     </SafeAreaView>
   );
 };
 
-// const MeuEstilo = MeuEstiloheet.create({
-//   containerlistar: {
-//     flex: 1,
-//     marginTop: StatusBar.currentHeight || 0,
-//   },
-//   item: {
-//     backgroundColor: 'white',
-//     padding: 20,
-//     marginVertical: 8,
-//     marginHorizontal: 16,
-//     borderColor: '#0782F9',
-//     borderWidth: 2,
-//     borderRadius: 10,
-//   },
-//   title: {
-//     fontSize: 16,
-//     color: '#0782F9',
-//     fontWeight: '700',
-//   },
-// });
+
 
 export default Listar;

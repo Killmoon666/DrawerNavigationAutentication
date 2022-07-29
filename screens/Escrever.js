@@ -4,24 +4,24 @@ import MeuEstilo from '../meuestilo'
 import { auth, firestore } from '../firebase'
 
 const Escrever = () => {
-  const [nome, setNome] = useState('')
+  const [marca, setmarca] = useState('')
   const [modelo, setModelo] = useState('')
   const [cor, setCor] = useState('')
   const [tipo, setTipo] = useState('')
 
-  const myRef = firestore.collection('Helicoptero').doc();
+  const myRef = firestore.collection('capacete').doc();
 
   const enviarDados = () => {
     myRef
      .set({
        id: myRef.id,
-       nome: nome,
+       marca: marca,
        modelo: modelo, 
        cor: cor,
        tipo: tipo, 
      })
      .then(() => {
-       alert('Helicoptero '+modelo+' Adicionado com Sucesso')
+       alert('capacete '+modelo+' Adicionado com Sucesso')
      });
     
   }
@@ -37,9 +37,9 @@ const Escrever = () => {
     >
       <View style={MeuEstilo.inputcontainerlistar}>
         <TextInput
-          placeholder="Nome"
-          value={nome}
-          onChangeText={text => setNome(text)}
+          placeholder="marca"
+          value={marca}
+          onChangeText={text => setmarca(text)}
           style={MeuEstilo.input}
         />
         <TextInput
